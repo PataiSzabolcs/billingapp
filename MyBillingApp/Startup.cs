@@ -17,15 +17,15 @@ namespace MyBillingApp
     public class Startup
     {
 
-        public static IConfigurationRoot Configuration { get; set; }
+        //public static IConfigurationRoot Configuration { get; set; }
 
-        public Startup()
-        {
-            var builder = new ConfigurationBuilder()
-                .AddEnvironmentVariables();
+        //public Startup()
+        //{
+        //    var builder = new ConfigurationBuilder()
+        //        .AddEnvironmentVariables();
 
-            Configuration = builder.Build();
-        }
+        //    Configuration = builder.Build();
+        //}
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
@@ -33,7 +33,7 @@ namespace MyBillingApp
         {
             services.AddMvc();
             services.AddScoped<ClientRepository>();
-            services.AddDbContext<ClientContext>(options => options.UseNpgsql(Configuration["CONNECTIONSTRING"]));
+            services.AddDbContext<ClientContext>(options => options.UseNpgsql("User ID=lflhldqlnzwljy;Password=60d2757aa494ae20932ee85137d99f8c047ccad3621a6c78fd4fe53b39ca6f50;Host=ec2-54-217-214-201.eu-west-1.compute.amazonaws.com;Port=5432;Database=d7d07hjfdnl04f;Pooling=true;sslmode=Require;Trust Server Certificate=true;Timeout=1000;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
